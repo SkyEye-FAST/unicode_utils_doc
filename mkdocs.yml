@@ -4,6 +4,7 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 
 theme:
     name: material
+    language: zh
     custom_dir: docs/overrides
 
 extra_css:
