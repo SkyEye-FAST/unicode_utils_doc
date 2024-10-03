@@ -17,22 +17,26 @@ extra_css:
 
 extra_javascript:
     - javascript/readthedocs.js
-    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+    - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
 
 markdown_extensions:
     - admonition
     - codehilite
     - pymdownx.arithmatex
-    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.betterem:
+          smart_enable: all
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details
     - pymdownx.emoji:
-        emoji_generator: !!python/name:pymdownx.emoji.to_svg
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
     - pymdownx.inlinehilite
     - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
     - pymdownx.superfences
-    - pymdownx.tasklist(custom_checkbox=true)
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.tabbed
     - pymdownx.tilde
