@@ -1,4 +1,4 @@
-# Unicode Utils文档
+# 开始
 
 Unicode Utils是一款用于与Unifont相关的Python库，旨在让用Python处理Unifont更加便利。
 
@@ -8,8 +8,12 @@ Unicode Utils是一款用于与Unifont相关的Python库，旨在让用Python处
 
 ## 安装
 
+Unifont Utils目前仅支持Python 3.8及以上版本。
+
 请使用下面的命令从PyPI安装Unifont Utils：
 
 ``` shell
 pip install unifont_utils
 ```
+
+安装此库需要Pillow 10.x，请确保没有依赖项冲突。
