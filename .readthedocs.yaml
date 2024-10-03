@@ -11,6 +11,10 @@ build:
 mkdocs:
     configuration: mkdocs.yml
 
+python:
+    install:
+        - requirements: requirements.txt
+
 formats:
     - pdf
     - epub
