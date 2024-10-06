@@ -2,6 +2,9 @@ site_name: Unifont Utils
 
 site_url: !ENV READTHEDOCS_CANONICAL_URL
 
+repo_url: https://github.com/SkyEye-FAST/unifont_utils
+repo_name: SkyEye-FAST/unifont_utils
+
 nav:
   - 开始: index.md
   - 安装: install.md
@@ -18,6 +21,8 @@ theme:
   custom_dir: docs/overrides
   font:
     code: Fira Code
+  icon:
+    repo: fontawesome/brands/github
   palette:
     - primary: blue
     - accent: deep purple
