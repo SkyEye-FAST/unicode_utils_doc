@@ -8,10 +8,18 @@
 
 可以使用`init_glyphs`方法创建新的字形集，涵盖某些Unicode编码，但不包含任何字形。
 
-传入的
+编码范围中的元素必须为有效的Unicode编码（参见[`Glyph`类的说明](glyph.md#glyph类)），否则会抛出`ValueError`异常。
+
+如果传入的编码范围为`list`类型，那么其中的元素必须为`int`或`str`类型，否则会抛出`TypeError`异常。
 
 ```python
-from unicode_utils import GlyphSet
+>>> from unicode_utils import GlyphSet
 
-glyph_set = GlyphSet.init_glyphs(range(0x0000, 0x10FFFF))
+>>> glyph_set = GlyphSet.init_glyphs([0x41, 0x42, "43", "0050", 0x55, "76"])
+```
+
+传入的编码范围也可以是`range`对象。
+
+```python
+>>> glyph_set = GlyphSet.init_glyphs(range(0x4E00, 0x9FA5))
 ```
