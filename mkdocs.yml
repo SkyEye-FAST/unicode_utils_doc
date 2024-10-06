@@ -4,13 +4,24 @@ site_url: !ENV READTHEDOCS_CANONICAL_URL
 
 nav:
     - 开始: index.md
+    - 安装: install.md
     - 字形: glyph.md
     - 字形集: glyph_set.md
+    - 外部链接:
+        - Github: "https://github.com/SkyEye-FAST/unifont_utils"
 
 theme:
     name: material
     language: zh
     custom_dir: docs/overrides
+    font:
+        code: Fira Code
+    features:
+        - content.code.copy
+        - header.autohide
+        - navigation.instant
+        - navigation.instant.progress
+        - navigation.footer
 
 extra_css:
     - stylesheets/readthedocs.css
