@@ -22,7 +22,7 @@
 !!! note
     编码范围中的元素必须为有效的Unicode编码（参见[`Glyph`类的说明](glyph.md#glyph类)），否则会抛出`ValueError`异常。
 
-    如果传入的编码范围为`list`类型，那么其中的元素必须为`int`或`str`类型，否则会抛出`TypeError`异常。
+    如果传入的编码范围为`list`、`set`或`tuple`类型，那么其中的元素必须为`int`或`str`类型，否则会抛出`TypeError`异常。
 
 传入的编码范围也可以是`range`对象。
 
