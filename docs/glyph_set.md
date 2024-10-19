@@ -218,7 +218,9 @@ True
 
 ### 保存为图片
 
-可以使用`save_unicode_page`方法将字形集保存为图片，大小为256×256，最多包含256个字形。这里的“Unicode Page”指的是Minecraft Java版使用的位图字体（Bitmap Font）可以用来在游戏中自定义字体。
+可以使用`save_unicode_page`方法将字形集保存为图片，大小为256×256，最多包含256个字形。
+
+这里的“Unicode Page”指的是Minecraft Java版使用的位图字体（Bitmap Font），用于在游戏中自定义字体。
 
 ```python
 >>> glyph_set.save_unicode_page("path/to/unicode_page.png")
