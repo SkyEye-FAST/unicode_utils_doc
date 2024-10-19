@@ -39,7 +39,7 @@ poetry install
 
 ## 从`.whl`文件安装
 
-如果无法直接在终端里从PyPI安装，可以从PyPI或[GitHub Releases](https://github.com/SkyEye-FAST/unifont_utils/releases)下载`.whl`文件。
+如果无法直接在终端里从PyPI安装，可以从PyPI或[GitHub Releases](https://github.com/SkyEye-FAST/unifont_utils/releases)下载`.whl`文件手动安装。
 
 此外，每次提交后，项目都会借助[GitHub Actions](https://github.com/SkyEye-FAST/unifont_utils/actions)自动构建开发状态的项目，可以下载此处构建的包来测试最新版本。
 
