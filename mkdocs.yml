@@ -12,6 +12,7 @@ nav:
       - 字形: glyph.md
       - 字形集: glyph_set.md
       - 编辑器: editor.md
+      - 替换与差异: replace.md
   - 外部链接:
       - Github: https://github.com/SkyEye-FAST/unifont_utils
       - PyPI: https://pypi.org/project/unifont_utils/
