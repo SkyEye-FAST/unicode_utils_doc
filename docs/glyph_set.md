@@ -4,7 +4,9 @@
 
 `GlyphSet` 类用于存储一系列字形，也提供一系列方法来处理这些字形。
 
-## 创建空白字形集
+## 创建字形集
+
+### 创建空白字形集
 
 直接实例化`GlyphSet`类可以创建一个空白字形集。
 
@@ -28,6 +30,16 @@
 
 ```python
 >>> glyph_set = GlyphSet.init_glyphs(range(0x4E00, 0x9FA5))
+```
+
+### 从`.hex`文件加载字形集
+
+可以使用`load_hex_file`方法从`.hex`文件中加载字形集。
+
+提供的路径可以是`Path`对象，也可以是`str`类型的文件路径，否则会抛出`TypeError`异常。
+
+```python
+>>> glyph_set = GlyphSet.load_hex_file("path/to/unifont.hex")
 ```
 
 ## 操作字形集中的字形
@@ -78,7 +90,7 @@
 
 如果字符集中已经包含了某个字形的编码位点，那么不能再使用`add_glyph`方法来重复添加，应当使用`update_glyphs`方法来更新这个字形。
 
-更新的字形必须为`Glyph`对象，否则会抛出`TypeError`异常。
+更新的字形必须为`Glyph`对象[^1]，否则会抛出`TypeError`异常。
 
 ```python
 >>> glyph_set.update_glyphs(glyph)
@@ -99,15 +111,16 @@
 >>> glyph_set.remove_glyph(glyph)
 ```
 
-也可以使用下面的方式（`__delitem__`魔法方法）来删除字形：
+!!! tips
+    也可以使用下面的方式（`__delitem__`魔法方法）来删除字形：
 
-```python
->>> del glyph_set[0x41]
-```
+    ```python
+    >>> del glyph_set[0x41]
+    ```
 
 ### 排序字形
 
-可以使用`sort_glyphs`方法对字形集中的字形按照编码排序。
+可以使用`sort_glyphs`方法，按Unicode编码排序字形集中的字形。
 
 ```python
 >>> glyph_set.sort_glyphs()
@@ -119,10 +132,10 @@
 
 `GlyphSet`对象使用一个`dict`对象来存储字形，键为字形的编码位点，值为`Glyph`对象。
 
-可以使用`glyphs`属性来获取这个字典。
+可以使用`glyphs`属性[^2]来获取这个字典。
 
 ```python
->>> print(glyph_set.glyphs)
+>>> glyph_set.glyphs
 ```
 
 ### 获取单个或多个字形
@@ -146,14 +159,67 @@
 >>> glyphs_new = glyph_set.get_glyphs([0x41, 0x42, 0x43])
 ```
 
-## 字形集的其他方法
+## 字形集的其他信息
 
 ### 字形集的长度
 
-可以使用`len`函数来获取字形集的长度，即字形的数量。
+可以使用`len`函数来获取字形集的长度，即其中所含字形的数量。返回值为`int`类型。
 
 ```python
->>> print(len(glyph_set))
+>>> len(glyph_set)
+114
+```
+
+### 字形集的存储范围
+
+可以使用`code_points`属性来获取字形集的存储范围。返回含`str`类型元素的`list`。
+
+```python
+>>> glyph_set.code_points
+['002C', '002D', '002E', '0050', '0051', '0052', '0053']
+```
+
+### 检查字形是否在字形集中
+
+可以使用`in`运算符来检查某个字形是否在字形集中。
+
+```python
+>>> glyph in glyph_set
+True
+```
+
+### 遍历字形集中的字形
+
+可以直接迭代`GlyphSet`对象，进而处理其中的字形。
+
+```python
+>>> for glyph in glyph_set:
+...     print(glyph)
+```
+
+## 保存字形集
+
+### 保存为`.hex`文件
+
+可以使用`save_hex_file`方法将字形集保存为`.hex`文件。
+
+```python
+>>> glyph_set.save_hex_file("path/to/unifont.hex")
+```
+
+### 保存为图片
+
+可以使用`save_unicode_page`方法将字形集保存为图片，大小为256×256，最多包含256个字形。这里的“Unicode Page”指的是Minecraft Java版使用的位图字体（Bitmap Font）可以用来在游戏中自定义字体。
+
+```python
+>>> glyph_set.save_unicode_page("path/to/unicode_page.png")
+```
+
+可以指定`start`参数来指定保存图片的起始编码位点。传入的值必须为有效的Unicode编码，默认为`4E00`。
+
+```python
+>>> glyph_set.save_unicode_page("path/to/unicode_page.png", start=0x4E01)
 ```
 
 [^1]: 为了保证兼容性，这里也可以传入格式为`(code_point, hex_str)`的元组，但不推荐这样做——除非你在某些特殊情况下无法创建`Glyph`对象。
+[^2]: 这里的`glyphs`实际上是特性（Property），不能直接修改。如果需要修改字形集中的字形，应该使用`add_glyph`、`update_glyphs`、`remove_glyph`等方法。
