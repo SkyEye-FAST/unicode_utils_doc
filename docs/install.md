@@ -18,7 +18,7 @@ pip install unifont_utils
 请使用下面的命令更新Unifont Utils：
 
 ``` shell
-pip install --upgrade Pillow
+pip install --upgrade unifont_utils
 ```
 
 ## 从源代码安装
