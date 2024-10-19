@@ -2,7 +2,7 @@
 
 ## 从PyPI安装
 
-Unifont Utils目前仅支持Python 3.8及以上版本。请参见[PyPI上的项目页面](https://pypi.org/project/unifont_utils/)。
+Unifont Utils目前仅支持Python 3.9及以上版本。请参见[PyPI上的项目页面](https://pypi.org/project/unifont_utils/)。
 
 请使用下面的命令从PyPI安装Unifont Utils：
 
@@ -10,13 +10,8 @@ Unifont Utils目前仅支持Python 3.8及以上版本。请参见[PyPI上的项�
 pip install unifont_utils
 ```
 
-安装此库需要Pillow 10.x，请确保没有依赖项冲突。
-
-如果`pip`命令无效，请使用下面的命令安装：
-
-``` shell
-python3 -m pip install unifont_utils
-```
+!!! tips
+    如果`pip`命令无效，请尝试使用`pip3`或在命令前加上`python3 -m`。
 
 ## 更新
 
@@ -26,8 +21,18 @@ python3 -m pip install unifont_utils
 pip install --upgrade Pillow
 ```
 
-如果`pip`命令无效，请使用下面的命令更新：
+## 从源代码安装
+
+如果需要从源代码安装，请先[安装Poetry](https://python-poetry.org/docs/#installation)。
+
+从GitHub上将项目克隆到本地：
 
 ``` shell
-python3 -m pip install --upgrade unifont_utils
+git clone https://github.com/SkyEye-FAST/unifont_utils.git
+```
+
+进入项目目录，然后使用下面的命令安装：
+
+``` shell
+poetry install
 ```
